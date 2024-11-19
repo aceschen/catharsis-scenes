@@ -21,7 +21,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight - 200);
+  createCanvas(windowWidth - 20, windowHeight - 20);
   // scenePrinter.push(sceneText[2]);
   // scenePrinter.push(sceneText[3]);
   frameRate(30);

@@ -22,7 +22,7 @@ function preload() {
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth - 20, windowHeight - 20);
   scenePrinter.push(sceneText[0]);
   scenePrinter.push(sceneText[1]);
   scenePrinter.push(sceneText[2]);

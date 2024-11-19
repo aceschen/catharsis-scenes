@@ -16,7 +16,7 @@ function preload() {
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth - 20, windowHeight - 20);
   
   for (var para of sceneText) {
     scene = concat(scene, split(para, " "));
@@ -55,7 +55,7 @@ function draw() {
     if ((lineY+240) > wHeight && sceneProgress < scene.length) { 
       scrollOffset -= (windowHeight/2);
       lineY = scrollOffset;
-      resizeCanvas(windowWidth, wHeight);
+      resizeCanvas(windowWidth - 20, wHeight - 20);
     }
   }
 }
