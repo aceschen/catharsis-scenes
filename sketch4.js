@@ -6,7 +6,7 @@ let sceneProgress = 0;
 let jetbrains;
 
 function preload() {
-  sceneText = loadStrings('/assets/scene2.txt');
+  sceneText = loadStrings('/assets/scene4.txt');
   jetbrains = loadFont('/assets/JetBrainsMono-VariableFont_wght.ttf');
 }
 
@@ -35,15 +35,30 @@ function draw() {
         }
     }
     lineX = 0; 
-    lineY += 80; 
+    lineY += 40; 
   }
 }
 
 function keyPressed() {
-  // left SDF
-  if (keyIsDown(83) === true && keyIsDown(68) === true && keyIsDown(70) === true) {
-    scenePrinter.push("A");
+  let threshold = 5;
+  let keysPressed = 0; 
+  let i = 1
+  while (i < 255) {
+    if (keyIsDown(i) === true) 
+      keysPressed += 1;
+    i += 1
   }
+  if (keysPressed >= threshold) {
+    scenePrinter.push(keysPressed.toString());
+  }
+  // left SDF
+  // if (keyIsDown(83) === true && keyIsDown(68) === true && keyIsDown(70) === true) {
+  //   scenePrinter.push("LEFT!");
+  // }
+  // right JKL
+  // if (keyIsDown(74) === true && keyIsDown(75) === true && keyIsDown(76) === true) {
+    // scenePrinter.push("RIGHT!");
+  // }
 }
 
 function keyChecker() {

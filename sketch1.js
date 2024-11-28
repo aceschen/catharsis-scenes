@@ -1,6 +1,6 @@
 let sceneText = [];
 let scene = [];
-let scenePrinter = ["(Start typing.)"];
+let scenePrinter = ["(Press any keys.)"];
 let sceneProgress = 0;
 let wHeight;
 let scrollOffset = 0;
@@ -65,18 +65,27 @@ function keyPressed() {
     scenePrinter.push("");
   } else {
     let word = (scene[sceneProgress]);
-    if (word == "Pause." || bangbangbang) {
-      bangbangbang = true;
-      printOne();
-    } else if (word.toLowerCase().includes("bang")) {
-      printOne();
+    if (word == ".") {
+      bangbangbang = false;
+    }
+    if (word == "Bang" || word == "bang" || bangbangbang) {
+      bangbangbang = true;    
+      let threshold = 4;
+      let keysPressed = 0; 
+      let i = 1
+      while (i < 255) {
+        if (keyIsDown(i) === true) 
+          keysPressed += 1;
+        i += 1
+      }
+      if (keysPressed >= threshold) {
+        // scenePrinter.push(keysPressed.toString());
+        printOne();
+      }
     } else {
-      scenePrinter.push(scene[sceneProgress]);
-      scenePrinter.push(scene[sceneProgress + 1]);
-      scenePrinter.push(scene[sceneProgress + 2]);
-      sceneProgress += 3;
-      if (scene[sceneProgress] == "Pause." || scene[sceneProgress + 1] == "Pause." || scene[sceneProgress + 2] == "Pause.")
-        bangbangbang = true;
+      printThree();
+      // if (scene[sceneProgress] == "Bang" || scene[sceneProgress + 1] == "Bang" || scene[sceneProgress + 2] == "Bang")
+      //   bangbangbang = true;
     }
   }
 }

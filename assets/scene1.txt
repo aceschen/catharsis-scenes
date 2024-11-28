@@ -24,6 +24,7 @@ Someone bangs on the door.
 YOU (shouting): It’s occupied! 
 Pause. They resume banging on the door. They don’t stop again.
 YOU (shouting, louder): I said it’s occupied! 
+(Bang on the keyboard. Press multiple keys at a time.)
 Bang bang bang. 
 YOU: It’s fucking occupied! Are you serious? 
 Bang bang bang bang bang. 
@@ -39,9 +40,14 @@ YOU: FUCK YOU!
 
 YOU: I’M LEAVING FOR GOOD!
 
-
+.
+.
+.
+.
+.
 
 Silence. 
+(Slow down.)
 The banging stops. 
 You throw the door open. 
 No one is there. 

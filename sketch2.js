@@ -1,13 +1,16 @@
 let sceneText = [];
 let scene = [];
 let scenePrinter = [];
+let keyPrinter = [];
 let sceneProgress = 0; 
 let started = false;
 let released = false;
+let hold = false;
 let wHeight;
 
 let wait = 0;
 let pressStart = 0;
+let releaseStart = 0;
 let newKeyPressed = false;
 
 let directionShown = false;
@@ -43,7 +46,7 @@ function draw() {
   let lineY = 120; 
   let lineX = 0;
 
-  if (keyIsPressed) 
+  if (!released) 
     keyChecker(frameCount);
 
   for (var para of scenePrinter) {
@@ -51,6 +54,12 @@ function draw() {
     for (var word of para) {
       if ((word.toLowerCase().includes("dream")))
         fill('green'); 
+      if (hold) {
+        fill(0, 0, 0, 255 - (frameCount - releaseStart)*2.5);
+      }
+      if (released) {
+        fill('black');
+      }
       text(word, lineX + 300, lineY);
       fill('black');
       lineX += (word.length*12 + 12);
@@ -61,6 +70,15 @@ function draw() {
     }
     lineX = 0; 
     lineY += 80; 
+  }
+
+
+  let keyLine = 120;
+  for (var key of keyPrinter) {
+    fill('green'); 
+    text(key, 100, keyLine);
+    fill('black');
+    keyLine += 40;
   }
 
   // text(frameCount, 100, 100);
@@ -76,42 +94,89 @@ function keyChecker(pressMoment) {
     // left shift
     if (keyIsDown(16) === true) {
       started = true;
-      pressPrint([sceneText[3], sceneText[4]]);
+      // pressPrint([sceneText[3], sceneText[4]]);
+      // if (!keyPrinter.includes("LEFT SHIFT")) 
+      //   keyPrinter.push("LEFT SHIFT");
     } 
     if (started) {
+      if (hold) {
+        print("Holding!");
+        holdMoment();
+      }
+      // left shift again
+      if (keyIsDown(16) === true) {
+        hold = false;
+        pressPrint([sceneText[3], sceneText[4]]);
+        if (!keyPrinter.includes("LEFT SHIFT")) 
+          keyPrinter.push("LEFT SHIFT");
+      } 
       // enter
       if (keyIsDown(13) === true) {
+        hold = false;
         pressPrint([sceneText[5], sceneText[6]]);
+        if (!keyPrinter.includes("ENTER")) 
+          keyPrinter.push("ENTER");
       } 
       // g = 71
       if (keyIsDown(71) === true) {
+        hold = false;
         pressPrint([sceneText[7], sceneText[8], sceneText[9]]);
+        if (!keyPrinter.includes("G")) 
+          keyPrinter.push("G");
       } 
       // 0 = 48
       if (keyIsDown(48) === true) {
+        hold = false;
         pressPrint([sceneText[10], sceneText[11], sceneText[12]]);
+        if (!keyPrinter.includes("0")) 
+          keyPrinter.push("0");
       } 
       // b = 66
       if (keyIsDown(66) === true) {
+        hold = false;
         pressPrint([sceneText[13], sceneText[14], sceneText[15]]);
+        if (!keyPrinter.includes("B")) 
+          keyPrinter.push("B");
       } 
       // 1 = 49
       if (keyIsDown(49) === true) {
+        hold = false;
         pressPrint([sceneText[16], sceneText[17], sceneText[18]]);
+        if (!keyPrinter.includes("1")) 
+          keyPrinter.push("1");
       }   
     }
   }
 }
 
 function keyReleased() {
+  releaseStart = frameCount;
   if (letGo) {
+    keyPrinter = [];
     scenePrinter = ["I win."];
     scenePrinter.push("\n");
     scenePrinter.push("(END OF SCENE 2.)")
   } else if (started) {
-    scenePrinter = ["The moment has passed."];
-    released = true;
+    // scenePrinter = ["The moment has passed."];
+    // released = true;
+    holdMoment();
+    hold = true;
   }
+}
+
+function holdMoment() {
+  if (!released) {
+    if (frameCount > releaseStart + 100) {
+      scenePrinter = ["The moment has passed."];
+      released = true;
+    } else {
+      // fill(0, 0, 0, 40);
+      // when frame change is 0 it should be 255 
+      // when frame change is 150 it should be 0
+      scenePrinter = ["The moment is fading. Hold the keys to return."];
+    }
+  }
+    // released = true;
 }
 
 function pressPrint(paras) {
