@@ -5,7 +5,7 @@ let namePrinter = [];
 let sceneProgress = 0; 
 let started = false;
 let nameTyped = false;
-let enterShown = false;
+let enterShown = true;
 let screenNumber = 0;
 
 let forbiddenLetters = [];
@@ -16,7 +16,7 @@ let lastLine = '"';
 let jetbrains;
 
 function preload() {
-  sceneText = loadStrings('/assets/scene3.txt');
+  sceneText = loadStrings('/assets/name.txt');
   jetbrains = loadFont('/assets/JetBrainsMono-VariableFont_wght.ttf');
 }
 
@@ -37,7 +37,7 @@ function draw() {
     let lineX = 300; 
     let lineY = 120;
     
-    text("SCENE 3: NAME", lineX, lineY);
+    text("SCENE 2: NAME", lineX, lineY);
     text("(Type your name, then press ENTER.)", lineX, lineY + 40);
     for (var letter of namePrinter) {
       fill("blue");
@@ -47,9 +47,13 @@ function draw() {
     }
   } else {
 
-    lineX = 0; 
-    lineY = 120;
     
+    fill("black");
+    text("(Type your name.)", 300, 120);
+    
+    lineX = 0; 
+    lineY = 180;
+
     for (var para of scenePrinter) {
       para = split(para, " ");
       for (var word of para) {
@@ -88,7 +92,7 @@ function draw() {
 function keyPressed() {
 
   if (!started) {
-    if (keyIsDown(13) === true) {
+    if (keyIsDown(13) === true) { // enter
       started = true;
       for (var letter in namePrinter) {
         letter = namePrinter[letter];
@@ -103,15 +107,15 @@ function keyPressed() {
       firstLine += '?"';
       lastLine += '."';
     }
-    if ((keyCode >= 65 && keyCode <= 90) || (keyCode === 32 || keyCode === 189)) {
+    if ((keyCode >= 65 && keyCode <= 90) || (keyCode === 32 || keyCode === 189)) { // alphabet space hyphen
       namePrinter.push(key);
-    } else if (keyCode === 8) {
+    } else if (keyCode === 8) { // backspace
       namePrinter.pop();
     }
   } 
 
   if (started) {
-    if (keyIsDown(13) === true && sceneProgress < 18) {
+    if (keyIsDown(13) === true && sceneProgress < 18 && enterShown) {
       screenNumber += 1;
       if (screenNumber > 8) {
         scenePrinter= [lastLine];

@@ -19,7 +19,7 @@ let letGo = false;
 let jetbrains;
 
 function preload() {
-  sceneText = loadStrings('/assets/scene2.txt');
+  sceneText = loadStrings('/assets/dream.txt');
   jetbrains = loadFont('/assets/JetBrainsMono-VariableFont_wght.ttf');
 }
 
@@ -55,7 +55,7 @@ function draw() {
       if ((word.toLowerCase().includes("dream")))
         fill('green'); 
       if (hold) {
-        fill(0, 0, 0, 255 - (frameCount - releaseStart)*2.5);
+        fill(0, 0, 0, 255 - (frameCount - releaseStart)*3);
       }
       if (released) {
         fill('black');
@@ -77,10 +77,10 @@ function draw() {
   for (var key of keyPrinter) {
     fill('green'); 
     text(key, 100, keyLine);
-    fill('black');
     keyLine += 40;
   }
-
+  
+  fill('black');
   // text(frameCount, 100, 100);
   // text(pressStart, 100, 140);
 }
@@ -100,15 +100,16 @@ function keyChecker(pressMoment) {
     } 
     if (started) {
       if (hold) {
-        print("Holding!");
         holdMoment();
       }
       // left shift again
       if (keyIsDown(16) === true) {
         hold = false;
         pressPrint([sceneText[3], sceneText[4]]);
-        if (!keyPrinter.includes("LEFT SHIFT")) 
+        if (!keyPrinter.includes("Hold:")) {
+          keyPrinter.push("Hold:");
           keyPrinter.push("LEFT SHIFT");
+        }
       } 
       // enter
       if (keyIsDown(13) === true) {
@@ -166,7 +167,7 @@ function keyReleased() {
 
 function holdMoment() {
   if (!released) {
-    if (frameCount > releaseStart + 100) {
+    if (frameCount > releaseStart + 85) {
       scenePrinter = ["The moment has passed."];
       released = true;
     } else {

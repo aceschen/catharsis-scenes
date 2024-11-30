@@ -10,7 +10,7 @@ let byLetter = false;
 let jetbrains;
 
 function preload() {
-  sceneText = loadStrings('/assets/scene1.txt');
+  sceneText = loadStrings('/assets/bangbangbang.txt');
   jetbrains = loadFont('/assets/JetBrainsMono-VariableFont_wght.ttf');
 }
 
