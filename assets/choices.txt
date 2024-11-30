@@ -1,4 +1,4 @@
-SCENE 4: CHOICE
+SCENE 4: CHOICES
 (When you see a choice in brackets, press the LEFT ARROW to select the left option or the RIGHT ARROW to select the right option.)
 Example: [Left/Right]
 You are sitting in a [class/room] that looks just like your high school. The desk is a little cramped, the chair isn’t quite the right height. Your body is just slightly stickier, sweatier, harder to maneuver than you remember.

@@ -60,3 +60,12 @@ canvas {
   background-color: blue;
   color: white;
 }
+
+#choices a {
+  color: deeppink;
+}
+
+#choices a:hover {
+  background-color: deeppink;
+  color: white;
+}
