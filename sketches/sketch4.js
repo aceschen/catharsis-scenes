@@ -1,7 +1,21 @@
 let sceneText = [];
 let scene = [];
 let scenePrinter = [];
-let sceneProgress = 0; 
+
+let lineNumber = 0; 
+
+let wordCount = 0;
+let charPrint = 1;
+let currentText = "";
+
+let inBrackets = false;
+let choices = ["", ""];
+let lastChoiceIndex = 0;
+let pauseForInput = false;
+
+let pause = 0;
+let wHeight;
+let scrollOffset = 120;
 
 let jetbrains;
 
@@ -13,86 +27,135 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   scenePrinter.push(sceneText[0]);
-  frameRate(30);
+  scenePrinter.push(sceneText[1]);
+  wordCount = scenePrinter[0].length;
+  frameRate(48);
+  wHeight = windowHeight
+
+  currentText = sceneText[0];
 }
+
+let textToPrint = "";
+let i = 0;
 
 function draw() {
   background(255);
   textSize(20);
   textFont(jetbrains);
 
-  let lineY = 120; 
-  let lineX = 0;
+  let lineY = scrollOffset; 
+  let lineX = 300;
 
-  for (var para of scenePrinter) {
-    para = split(para, " ");
-    for (var word of para) {
-        text(word, lineX + 300, lineY);
-        lineX += (word.length*12 + 15);
-        if (lineX > windowWidth - 600) {
-          lineY += 40;
-          lineX = 0;
-        }
+  inBrackets = false;
+
+  // let c = 0;
+  
+  for (i = 0; i < charPrint; i++) {
+    if (currentText.charAt(i) == "+"){ // end of line
+      lineY += 80;
+      lineX = 300;
+    } else {
+      if (currentText.charAt(i) == "[") {
+        inBrackets = true;
+      } else if (currentText.charAt(i-1) == "]") {
+        inBrackets = false;
+      } else if (currentText.charAt(i) == "]") {
+        pauseForInput = true;
+      }
+      if (inBrackets)
+        fill("deeppink");
+      else 
+        fill("black");
+      
+      text(currentText.charAt(i), lineX, lineY);
+      lineX += (12);
+      
+      // newline
+      if (lineX > windowWidth - 300 && currentText.charAt(i) == " ") {
+        lineY += 40;
+        lineX = 300;
+      }
+    } 
+  }
+
+  print(pauseForInput);
+  
+  // add new char
+    if (i < currentText.length) {
+      if (!pauseForInput)
+        charPrint += 1;
     }
-    lineX = 0; 
-    lineY += 40; 
+
+  // add the cursor
+  if (frameCount % 36 > 10) {
+    text("|", lineX, lineY);
+  }
+
+  // pause and go to next para
+  if (i == currentText.length) {
+    if (pause > frameRate() && sceneText[lineNumber + 1] != undefined) { 
+      lineNumber += 1;
+      currentText += "+"
+      currentText += sceneText[lineNumber];
+      pause = 0;
+    } else {
+      pause += 1;
+    }
+  }
+
+  // while (i < charPrint) {
+  //   let c = line[i];
+  //   if (c == "+"){ // end of line
+  //     lineY += 80;
+  //     lineX = 300;
+  //   } else {
+  //     if (c == "[") {
+  //       inBrackets = true;
+  //     } else if (line[i-1] == "]") {
+  //       inBrackets = false;
+  //       lastChoiceIndex = i;
+  //       pauseForInput = true;
+  //     }
+  //     if (inBrackets)
+  //       fill("deeppink");
+  //     else 
+  //       fill("black");     
+
+  //     text(c, lineX, lineY);
+  //     lineX += (12);
+  //   } 
+
+  //   // newline
+  //   if (lineX > windowWidth - 300 && line[i+1] == " ") {
+  //     i += 1;
+  //     lineY += 40;
+  //     lineX = 300;
+  //   }
+
+  //   // if (!pauseForInput) 
+  //     i += 1;
+  // }
+
+  choices[0] = currentText.substring(currentText.indexOf("[") + 1, currentText.indexOf("/")); 
+  choices[1] = currentText.substring(currentText.indexOf("/") + 1, currentText.indexOf("]")); 
+  
+  if ((lineY+240) > wHeight && charPrint < currentText.length) { 
+    scrollOffset -= (windowHeight/2);
+    lineY = scrollOffset;
+    resizeCanvas(windowWidth - 20, wHeight - 20);
   }
 }
 
 function keyPressed() {
-  let threshold = 5;
-  let keysPressed = 0; 
-  let i = 1
-  while (i < 255) {
-    if (keyIsDown(i) === true) 
-      keysPressed += 1;
-    i += 1
-  }
-  if (keysPressed >= threshold) {
-    scenePrinter.push(keysPressed.toString());
-  }
-  // left SDF
-  // if (keyIsDown(83) === true && keyIsDown(68) === true && keyIsDown(70) === true) {
-  //   scenePrinter.push("LEFT!");
-  // }
-  // right JKL
-  // if (keyIsDown(74) === true && keyIsDown(75) === true && keyIsDown(76) === true) {
-    // scenePrinter.push("RIGHT!");
-  // }
-}
-
-function keyChecker() {
-  if (!letGo){
-    // left shift
-    if (keyIsDown(16) === true && !released) {
-      started = true;
-      pressPrint([sceneText[3], sceneText[4]]);
-    } 
-  }
-}
-
-function keyReleased() {
-  if (letGo) {
-    scenePrinter = ["I win."];
-  } else if (started) {
-    scenePrinter = ["The moment has passed."];
-    released = true;
-  }
-}
-
-function pressPrint(paras) {
-  scenePrinter = [];
-  scenePrinter.push(paras[0]);
-
-  // modify to extend based on paragraph length?
-  let p0words = split(paras[0], " ").length;
-  let p1words = split(paras[1], " ").length;
-
-  if (frameCount > pressStart + 80)
-    scenePrinter.push(paras[1]);
-  if (paras.length == 3 && frameCount > pressStart + 160) {
-    scenePrinter.push(paras[2])
-    if (paras[2] == "(Let go.)")
-      letGo = true;
+  if (pauseForInput && (key === "ArrowLeft" || key === "ArrowRight")) {
+    let newText = currentText.substring(0, currentText.indexOf("["));
+    if (key === "ArrowLeft")
+      newText += choices[0];
+    else if (key === "ArrowRight")
+      newText += choices[1];
+    newText += currentText.substring(currentText.indexOf("]") + 1);
+    currentText = newText;
+    charPrint -= choices[1].length + 3;
+    pauseForInput = false;
   }
 }
