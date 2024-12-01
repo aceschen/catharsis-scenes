@@ -1,7 +1,17 @@
 SCENE 4: CHOICES
 (When you see a choice in brackets, press the LEFT ARROW to select the left option or the RIGHT ARROW to select the right option.)
 Example: [Left/Right]
-You are sitting in a [class/room] that looks just like your high school. The desk is a little cramped, the chair isn’t quite the right height. Your body is just slightly stickier, sweatier, harder to maneuver than you remember.
-To your left: a [boy/girl] that you might have had a [distant/confusing] crush on in first grade. Maybe you went to a dance together, or maybe he started bullying one of your friends. Possibly both. Years from now, you will think of him 
-To your right: a girl 
-TEACHER: Pop quiz. 
+You are sitting in a classroom that looks just like the ones in your high school. The desk is a little cramped, the chair isn’t quite the right height. Your body is just slightly stickier, sweatier, harder to maneuver than you remember.
+To stay awake, you begin to [click your pen/tap your foot].
+(For the rest of the scene, continuously tap SPACE. Begin now.)
+*To your left is a [boy/girl] that you had a [tenderhearted/confusing] crush on in first grade. A few years down the line, [you went to a dance together/they started bullying one of your friends]. Years from now, you will think of them faintly as your “first love”. Right now, they’re nodding off while the teacher preaches absently.
+TEACHER: … when Jackson… the lottery… traditionally it … for harvest… 
+To your right is your [best friend/sworn enemy]. You [secretly/obviously] enjoy sitting next to them every day. 
+The classroom is damp with boredom. 
+TEACHER: Listen up! 
+Heads hang down like wet towels. There’s a secret undercurrent of movement to stay awake. Some kid across the room is etching phallic artwork into the desks.
+TEACHER: I know, it’s too [hot/cold] in here. But we have to make the most of the fifty minutes we have together every day. 
+Everyone groans. You [groan too/keep quiet].
+STUDENT (mumbling a little too loud): Nobody gives a shit about this stuff anyways.
+TEACHER: That’s it, wake up. Pop quiz. You guys asked for it. Get out a piece of paper and a pen.
+Everyone groans much louder. You [have no idea/are confident about] what your teacher has been saying all period. 

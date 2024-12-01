@@ -14,6 +14,10 @@ let pauseForInput = false;
 let wHeight;
 let scrollOffset = 120;
 
+let circleSize = 60; 
+let startTap = false;
+let ended = false;
+
 let jetbrains;
 
 function preload() {
@@ -46,6 +50,8 @@ function draw() {
     if (currentText.charAt(i) == "+"){ // end of line
       lineY += 80;
       lineX = 300;
+    } else if (currentText.charAt(i) == "*") {
+      startTap = true;
     } else {
       if (currentText.charAt(i) == "[") {
         inBrackets = true;
@@ -73,19 +79,20 @@ function draw() {
   print(pauseForInput);
   
   // add new char
-    if (i < currentText.length) {
+    if (i < currentText.length && !ended) {
       if (!pauseForInput)
         charPrint += 1;
     }
 
   // add the cursor
-  if (frameCount % 36 > 10) {
+  if (frameCount % 36 > 10 && !ended) {
     text("|", lineX, lineY);
   }
 
   // pause and go to next para
   if (i == currentText.length) {
     if (pause > frameRate() && sceneText[lineNumber + 1] != undefined) { 
+      print(frameRate())
       lineNumber += 1;
       currentText += "+"
       currentText += sceneText[lineNumber];
@@ -103,6 +110,21 @@ function draw() {
     lineY = scrollOffset;
     resizeCanvas(windowWidth - 20, wHeight - 20);
   }
+
+  if (startTap) {
+    noStroke();
+    fill("deeppink");
+    if (circleSize == 0) {
+      scrollOffset = 120;
+      currentText = "TEACHER: Hey, you! Wake up!";
+      charPrint = currentText.length;
+      ended = true;
+    } else {
+      circleSize -= 1;
+    }
+    circle(100, 120, circleSize);
+  }
+  
 }
 
 function keyPressed() {
@@ -117,4 +139,5 @@ function keyPressed() {
     charPrint -= choices[1].length + 3;
     pauseForInput = false;
   }
+  circleSize = 60;
 }
