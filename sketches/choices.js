@@ -14,7 +14,7 @@ let pauseForInput = false;
 let wHeight;
 let scrollOffset = 120;
 
-let circleSize = 60; 
+let barLength = 60; 
 let startTap = false;
 let ended = false;
 
@@ -70,6 +70,8 @@ function draw() {
     } else if (currentChar == "$") {
       failCheck();
       currentText = currentText.substring(0, i) + failure + currentText.substring(i + 1);
+    } else if (currentChar == "#") {
+      startTap = false;
     } else {
       if (currentChar == "[") {
         inBrackets = true;
@@ -109,7 +111,7 @@ function draw() {
   if (i == currentText.length) {
     if (pause > frameRate() && sceneText[lineNumber + 1] != undefined) { 
       lineNumber += 1;
-      if (lineNumber == 4 || lineNumber == 12 || lineNumber == 19 || lineNumber == 25) {
+      if (lineNumber == 4 || lineNumber == 10 || lineNumber == 16 || lineNumber == 22) {
         currentText = "+";
         currentText = sceneText[lineNumber];
         i = 0;
@@ -137,15 +139,15 @@ function draw() {
   if (startTap) {
     noStroke();
     fill("deeppink");
-    if (circleSize == 0) {
+    if (barLength == 0) {
       scrollOffset = 120;
       currentText = "TEACHER: Are you listening?+(END OF SCENE 4)";
       charPrint = currentText.length;
       ended = true;
     } else {
-      circleSize -= 1;
+      barLength -= 1;
     }
-    circle(100, 120, circleSize);
+    rect(100, 100, barLength * 2, 20)
   }
   
 }
@@ -159,7 +161,7 @@ function keyPressed() {
     startTap = true;
   }
   if (key === " ") {
-    circleSize = 60;
+    barLength = 60;
   }
   if (pauseForInput && (key === "ArrowLeft" || key === "ArrowRight")) {
     let newText = currentText.substring(0, currentText.indexOf("["));
@@ -182,11 +184,16 @@ function keyPressed() {
 }
 
 function failCheck() {
+  print(answers);
+  print(correctAnswers);
   failure = answers.pop();
-  if (failure == "ArrowRight") 
-    failure = "highest";
-  else if (failure == "ArrowLeft")
+  print(answers);
+  print(correctAnswers);
+  print(failure);
+  if (failure == "ArrowLeft") 
     failure = "lowest";
+  else if (failure == "ArrowRight")
+    failure = "highest";
 }
 
 function scoreCheck() {
@@ -196,12 +203,12 @@ function scoreCheck() {
   }
   let line = score.toFixed() + " out of 7. ";
   
-  if (score == 0 && failure == "lowest") {
-    line += "You failed both the quiz and the unit.)"
-  } else if (score == 0 && failure == "highest") {
-    line += "You've failed the quiz, but your grade is hanging on.)"
-  } else if (score == 7 && failure == "highest") {
-    line += "You aced the quiz, but you've failed the unit.)";
+  if (score <= 1 && failure == "lowest") {
+    line += "You failed the quiz and likely the unit.)"
+  } else if (score <= 1 && failure == "highest") {
+    line += "You failed the quiz, but your grade is hanging on.)"
+  } else if (score >= 6 && failure == "highest") {
+    line += "You did great on the quiz, but you might have failed the unit.)";
   } else if (score == 7 && failure == "lowest") {
     line += "You aced the quiz.)";
   } else  {

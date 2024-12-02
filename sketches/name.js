@@ -49,7 +49,8 @@ function draw() {
 
     
     fill("black");
-    text("(Type your name.)", 300, 120);
+    if (screenNumber <= 8)
+      text("(Type your name.)", 300, 120);
     
     lineX = 0; 
     lineY = 180;
@@ -118,9 +119,9 @@ function keyPressed() {
     if (keyIsDown(13) === true && sceneProgress < 18 && enterShown) {
       screenNumber += 1;
       if (screenNumber > 8) {
-        scenePrinter= [lastLine];
+        scenePrinter = [lastLine];
         // scenePrinter.push("\n");
-        scenePrinter.push("(END OF SCENE 3.)");
+        scenePrinter.push("(END OF SCENE 2.)");
         hiddenLetters = [];
       } else {
         scenePrinter = [firstLine];
