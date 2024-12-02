@@ -33,7 +33,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth - 20, windowHeight - 20);
-  frameRate(60);
+  frameRate(40);
   wHeight = windowHeight
 
   currentText = sceneText[0];
@@ -121,7 +121,7 @@ function draw() {
       }
       pause = 0;
     } else {
-      pause += 30;
+      pause += 1;
     }
   }
 
