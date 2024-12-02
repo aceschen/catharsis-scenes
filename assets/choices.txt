@@ -1,17 +1,36 @@
 SCENE 4: CHOICES
-(When you see a choice in brackets, press the LEFT ARROW to select the left option or the RIGHT ARROW to select the right option.)
+(When you see a choice in brackets, press the LEFT ARROW or RIGHT ARROW to select an option.)
 Example: [Left/Right]
-You are sitting in a classroom that looks just like the ones in your high school. The desk is a little cramped, the chair isn’t quite the right height. Your body is just slightly stickier, sweatier, harder to maneuver than you remember.
-To stay awake, you begin to [click your pen/tap your foot].
-(For the rest of the scene, continuously tap SPACE. Begin now.)
-*To your left is a [boy/girl] that you had a [tenderhearted/confusing] crush on in first grade. A few years down the line, [you went to a dance together/they started bullying one of your friends]. Years from now, you will think of them faintly as your “first love”. Right now, they’re nodding off while the teacher preaches absently.
-TEACHER: … when Jackson… the lottery… traditionally it … for harvest… 
-To your right is your [best friend/sworn enemy]. You [secretly/obviously] enjoy sitting next to them every day. 
-The classroom is damp with boredom. 
-TEACHER: Listen up! 
-Heads hang down like wet towels. There’s a secret undercurrent of movement to stay awake. Some kid across the room is etching phallic artwork into the desks.
-TEACHER: I know, it’s too [hot/cold] in here. But we have to make the most of the fifty minutes we have together every day. 
-Everyone groans. You [groan too/keep quiet].
+(Throughout this scene, you will also need to continuously tap SPACE. Press SPACE to begin.)
+*You are sitting in a classroom that looks just like the ones in your high school. The desk is a little cramped, the chair isn’t quite the right height.
+Your body is just slightly stickier, sweatier, harder to maneuver than you remember. To stay awake, you are [clicking your pen/tapping your foot].
+To your left is a [boy/girl] that you had a [tender/confusing] crush on in grade school. A few years down the line, [you went to a dance together/they started bullying one of your friends]. In the distant future, softened by nostalgia, you might think of them faintly as your “first love”.
+TEACHER: Okay, class… when Jackson… the lottery… traditionally it … for harvest…
+To your right is your [best friend/sworn enemy]. You [secretly/obviously] enjoy sitting next to them every day. They’re nodding off while the teacher preaches absently.
+TEACHER: … families would… drawn… Old Man Warner…
+The classroom is damp with boredom. Heads hang down like wet towels.
+TEACHER: … I said, would anybody be so brave as to answer?
+A secret undercurrent of movement ripples through the room, betraying teenagers trying to stay awake. You consider etching phallic artwork into your desk. You [do it/restrain yourself].
+TEACHER: I know, this classroom is just too [hot/cold]. But we have to make the most of the fifty minutes we have together every day.
 STUDENT (mumbling a little too loud): Nobody gives a shit about this stuff anyways.
-TEACHER: That’s it, wake up. Pop quiz. You guys asked for it. Get out a piece of paper and a pen.
-Everyone groans much louder. You [have no idea/are confident about] what your teacher has been saying all period. 
+TEACHER: That’s it, you guys asked for it. Pop quiz. Get out a piece of paper, come on.
+Everyone groans. Personally, you [have no idea/are confident about] what your teacher has been saying all period.
+TEACHER: One more thing, before you get started. In the spirit of today’s topic, one student will automatically fail this unit. On your paper, you will choose if this is the highest or lowest scoring student. Popular vote wins. Do with this information what you wish.
+What? Everyone reacts: murmurs, gasps, or unconvinced chatter. Before anybody can object, questions are projected onto the board and an unsettled silence falls over the room. [You're ready/You're nervous, but you start anyway].
+&QUESTION 1: The topic of today’s class is a [short story/historical account] titled “The Lottery”.
+QUESTION 2: The lottery was a [traditional/modern] practice that [brought luck to each family/ensured a good harvest] every year.
+QUESTION 3: Families [purchased tickets at the start of the season/were assigned lots based on their household size]. Participation was [compulsory/optional].
+QUESTION 4: The families who participated in the lottery hoped to [win/lose].
+QUESTION 5: “Winning” the lottery meant [survival/death]. 
+QUESTION 6: I vote for the [highest/lowest] scoring student to fail.
+^Time’s up. Shuffling and disgruntled noises. Your teacher leafs through the papers, visibly disappointed and tallying the votes. Someone speaks up.
+[YOU/CLASSMATE]: This is a ridiculous policy. Why are you punishing us?
+Anxious agreement circulates. A certain stillness falls over the room, but you can’t seem to stop tapping.
+TEACHER: Before there are any further complaints, I’d like to announce that the $ scoring student will be failing.
+(You scored a %
+TEACHER: And as a reminder, 
+TEACHER: you aren't the ones in control here. 
+TEACHER: We can't always have do-overs.
+TEACHER: And if we could, 
+TEACHER: Would you make different choices?
+(END OF SCENE 4.)
