@@ -2,8 +2,8 @@ SCENE 3: CHOICES
 (When you see a choice in brackets, press the LEFT ARROW or RIGHT ARROW to select an option.)
 Example: [Left/Right]
 (Throughout this scene, you will also need to continuously tap SPACE. Begin now.)
-*You are sitting in a classroom that looks just like the ones in your [middle/high] school. The desk is a little cramped, the chair isn’t quite the right height. Your body is just slightly stickier, sweatier, harder to maneuver than you remember. To stay awake, you are [clicking your pen/tapping your foot].
-TEACHER: Okay, class… when Jackson… the lottery… traditionally it … for harvest…
+*You are sitting in a classroom that looks just like the ones in your high school. The desk is a little cramped, the chair isn’t quite the right height. Your body is just slightly stickier, sweatier, harder to maneuver than you remember. To stay awake, you are [clicking your pen/tapping your foot].
+TEACHER: Okay, class… when Jackson… lottery was… traditionally families … for harvest…
 You glance to your [left/right], where a [boy/girl] is sitting – your crush. You’re thinking about how they [asked you to a dance/started bullying your friend] and you aren’t sure what to do. Either way, softened by nostalgia, you think of them in the future faintly as your “first [love/heartbreak]”.
 The classroom is damp with boredom. Heads hang down like wet towels.
 TEACHER: … I said, would anybody be so brave as to answer?
