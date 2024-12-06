@@ -28,7 +28,8 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(0);
+  fill("white")
   textSize(20);
   textFont(jetbrains);
 
@@ -40,15 +41,15 @@ function draw() {
     text("SCENE 2: NAME", lineX, lineY);
     text("(Type your name, then press ENTER.)", lineX, lineY + 40);
     for (var letter of namePrinter) {
-      fill("blue");
+      fill("gold");
       text(letter, lineX, lineY + 80);
       lineX += 12
-      fill("black");
+      // fill("white");
+      fill("white");
     }
   } else {
-
-    
-    fill("black");
+    // fill("white");
+    fill("white");
     if (screenNumber <= 8)
       text("(Type your name.)", 300, 120);
     
@@ -67,14 +68,14 @@ function draw() {
             text(nameLetter, lineX + 300, lineY);
             lineX += 12
           }
-          fill("black");
+          fill("white");
           text(".", lineX + 300, lineY);
           lineX += 27;
         } else {
           for (var letter of word) {
             letterColor(letter);
             text(letter, lineX + 300, lineY);
-            fill("black");
+            fill("white");
             lineX += (12);
           }
           lineX += (12);
@@ -151,8 +152,8 @@ function letterColor(letter) {
   for (var letterCheck of forbiddenLetters) {
     let letterLow = letter.toLowerCase();
     if (hiddenLetters.indexOf(letterLow) > -1) 
-      fill (0, 0, 0, screenNumber * 10);
+      fill (255, 255, 255, (screenNumber * 20) + 10);
     else if (forbiddenLetters.indexOf(letterLow) > -1) 
-      fill ("blue");
+      fill ("gold");
   }
 }

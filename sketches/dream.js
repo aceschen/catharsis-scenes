@@ -39,7 +39,8 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(0);
+  fill("white")
   textSize(20);
   textFont(jetbrains);
 
@@ -50,18 +51,20 @@ function draw() {
     keyChecker(frameCount);
 
   for (var para of scenePrinter) {
+  
+    fill("white")
     para = split(para, " ");
     for (var word of para) {
       if ((word.toLowerCase().includes("dream")))
-        fill('green'); 
+        fill('limegreen'); 
       if (hold) {
-        fill(0, 0, 0, 255 - (frameCount - releaseStart)*3);
+        fill(255, 255, 255, 255 - (frameCount - releaseStart)*3);
       }
       if (released) {
-        fill('black');
+        fill('white');
       }
       text(word, lineX + 300, lineY);
-      fill('black');
+      fill('white');
       lineX += (word.length*12 + 12);
       if (lineX > windowWidth - 600) {
         lineY += 40;
@@ -75,12 +78,12 @@ function draw() {
 
   let keyLine = 120;
   for (var key of keyPrinter) {
-    fill('green'); 
+    fill('limegreen'); 
     text(key, 100, keyLine);
     keyLine += 40;
   }
   
-  fill('black');
+  fill('white');
   // text(frameCount, 100, 100);
   // text(pressStart, 100, 140);
 }
@@ -156,7 +159,7 @@ function keyReleased() {
     keyPrinter = [];
     scenePrinter = ["I win."];
     scenePrinter.push("\n");
-    scenePrinter.push("(END OF SCENE 2.)")
+    scenePrinter.push("(END OF SCENE 4.)")
   } else if (started) {
     // scenePrinter = ["The moment has passed."];
     // released = true;

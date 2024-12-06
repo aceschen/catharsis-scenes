@@ -43,7 +43,8 @@ let textToPrint = "";
 let i = 0;
 
 function draw() {
-  background(255);
+  background(0);
+  fill("white");
   textSize(20);
   textFont(jetbrains);
 
@@ -81,9 +82,9 @@ function draw() {
         pauseForInput = true;
       }
       if (inBrackets)
-        fill("deeppink");
+        fill("#2483FF");
       else 
-        fill("black");
+        fill("white");
       
       text(currentChar, lineX, lineY);
       lineX += (12);
@@ -138,10 +139,10 @@ function draw() {
 
   if (startTap) {
     noStroke();
-    fill("deeppink");
+    fill("#2483FF");
     if (barLength == 0) {
       scrollOffset = 120;
-      currentText = "TEACHER: Are you listening?+(END OF SCENE 4)";
+      currentText = "TEACHER: Are you listening?+(END OF SCENE 3)";
       charPrint = currentText.length;
       ended = true;
     } else {

@@ -7,6 +7,8 @@ let scrollOffset = 0;
 let bangbangbang = false;
 let byLetter = false;
 
+let threshold = 1;
+
 let jetbrains;
 
 function preload() {
@@ -28,7 +30,7 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(0);
   let lineY = scrollOffset;
   // let lineY = 0;
   let lineX = 0;
@@ -41,11 +43,8 @@ function draw() {
     } else {
       if ((word.toLowerCase().includes("bang")))
         fill('red'); 
-      if (byLetter) {
-        
-      }
       text(word, lineX + 300, lineY + 120);
-      fill('black');
+      fill('white');
       lineX += ((word.length * 12) + 12);
       if (lineX > windowWidth - 600) {
         lineY += 40;
@@ -66,11 +65,14 @@ function keyPressed() {
   } else {
     let word = (scene[sceneProgress]);
     if (word == ".") {
-      bangbangbang = false;
+      // bangbangbang = false;
+      threshold = 1;
     }
-    if (word == "Bang" || word == "bang" || bangbangbang) {
+    if (word == "Bang" || word == "bang") {
       bangbangbang = true;    
-      let threshold = 4;
+      threshold = 3;
+    }
+    if (bangbangbang) {
       let keysPressed = 0; 
       let i = 1
       while (i < 255) {

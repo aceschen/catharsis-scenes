@@ -2,10 +2,13 @@
 
 html, body {
   padding: 0;
-  font-family: "JetBrains Mono", serif;
+  font-family: "JetBrains Mono", sans-serif;
   font-size: 20px;
   line-height: 38px;
+  background-color: black;
+  color: white; 
 }
+
 canvas {
   display: block;
 }
@@ -14,23 +17,36 @@ canvas {
   margin: 102px 300px;
 }
 
+#ace a {
+  color: white;
+}
+
+#ace a:hover {
+  background-color: white;
+  color: black;
+}
+
 #return {
   position: absolute;
   left: 24px;
   top: 24px;
   font-family: "JetBrains Mono", serif;
   font-size: 20px;
-  color: black;
+  /* color: black; */
+  color: white;
   text-decoration: none;
 }
 
 #return:hover {
-  background-color: black;
-  color: white; 
+  /* background-color: black;
+  color: white;  */
+  background-color: white;
+  color: black;
 }
 
 #back {
   color: white;
+  color: black;
 }
 
 
@@ -40,32 +56,36 @@ canvas {
 
 #bang a:hover {
   background-color: red;
-  color: white;
-}
-
-#dream a {
-  color: green;
-}
-
-#dream a:hover {
-  background-color: green;
-  color: white;
+  color: black;
 }
 
 #name a {
-  color: blue;
+  color: gold;
+  /* color: green; */
 }
 
 #name a:hover {
-  background-color: blue;
-  color: white;
+  background-color: gold;
+  /* background-color: green; */
+  color: black;
 }
 
 #choices a {
-  color: deeppink;
+  /* color: blue; */
+  color: #2483FF;
 }
 
 #choices a:hover {
-  background-color: deeppink;
-  color: white;
+  /* background-color: blue; */
+  background-color: #2483FF;
+  color: black;
+}
+
+#dream a {
+  color: limegreen;
+}
+
+#dream a:hover {
+  background-color: limegreen;
+  color: black;
 }
